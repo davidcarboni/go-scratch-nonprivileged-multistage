@@ -4,13 +4,11 @@
 FROM golang:onbuild as builder
 
 # Source
-WORKDIR /app
-ADD . /app/
+WORKDIR /build
+ADD . .
 
 # Compile
-ENV CGO_ENABLED=0 
-ENV GOOS=linux 
-RUN go build -a -installsuffix cgo -o main .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
 # User definition: only the 'nobody' user
 RUN cat /etc/passwd | grep nobody > passwd.nobody
@@ -21,11 +19,13 @@ RUN cat /etc/passwd | grep nobody > passwd.nobody
 FROM scratch
 
 # User definition
-COPY --from=builder /app/passwd.nobody /etc/passwd
+COPY --from=builder /build/passwd.nobody /etc/passwd
+
+# SSL
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # App
-COPY --from=builder /app/main .
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /build/main .
 
 # Run
 USER nobody

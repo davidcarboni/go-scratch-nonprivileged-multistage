@@ -16,9 +16,7 @@ func main() {
     check(err)
     body, err := ioutil.ReadAll(resp.Body)
     check(err)
-    fmt.Println(len(body))
-    fmt.Println("Ohai! :D")
-
+    fmt.Printf("Length of content received from google.com: %d\n", len(body))
     fmt.Printf("Running as user ID: %d\n", os.Getuid())
 }
 

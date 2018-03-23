@@ -1,7 +1,7 @@
 
 ### Build
 
-FROM golang as builder
+FROM golang as build
 
 # Source
 WORKDIR /build
@@ -19,13 +19,13 @@ RUN cat /etc/passwd | grep nobody > passwd.nobody
 FROM scratch
 
 # User definition
-COPY --from=builder /build/passwd.nobody /etc/passwd
+COPY --from=build /build/passwd.nobody /etc/passwd
 
 # SSL
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # App
-COPY --from=builder /build/google .
+COPY --from=build /build/google .
 
 # Run
 USER nobody

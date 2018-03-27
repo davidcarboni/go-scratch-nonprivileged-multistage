@@ -16,8 +16,4 @@ To run the image:
 
 ## Demo
 
-If you'd like to walk through the steps that led to creating this image, [there is a demonstration repository here](https://github.com/davidcarboni/ddd).
-
-[The built image can be found on Docker Hub](https://hub.docker.com/r/davidcarboni/go-scratch-nonprivileged-multistage/)
-
-I created the demo for a talk at [DDD Wales 2018](https://www.dddwales.com/)
+If you'd like to walk through the steps that go into creating this image, [there is a demonstration repository here](https://github.com/davidcarboni/ddd). [The built image can be found on Docker Hub](https://hub.docker.com/r/davidcarboni/go-scratch-nonprivileged-multistage/)

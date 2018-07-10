@@ -20,4 +20,4 @@ To make a request:
 
 ## Demo
 
-If you'd like to walk through the steps that go into creating this image, [there is a demonstration repository here](https://github.com/davidcarboni/ddd). [The built image can be found on Docker Hub](https://hub.docker.com/r/davidcarboni/go-scratch-nonprivileged-multistage/) and there's also [an accompanying blog post](https://medium.com/@davidcarboni/simplicity-wins-4fc54efae1f0).
+If you'd like to walk through the steps that go into creating this image, [there is a demonstration repository here](https://github.com/davidcarboni/ddd). The [built image can be found on Docker Hub](https://hub.docker.com/r/davidcarboni/go-scratch-nonprivileged-multistage/) and there's [an accompanying blog post](https://medium.com/@davidcarboni/simplicity-wins-4fc54efae1f0) too.

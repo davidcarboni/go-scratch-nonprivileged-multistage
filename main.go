@@ -40,10 +40,16 @@ func check(err error) {
 }
 
 func main() {
-    log.Println("Listening on this host: http://localhost:7000")
+
+    port := "7000"
+    if p := os.Getenv("PORT"); p != "" {
+        port = p
+    }
+
+    log.Printf("Listening on this host: http://localhost:%v\n", port)
 
     http.HandleFunc("/google", ContentLengthHandler)
-    err := http.ListenAndServe(":7000", nil)
+    err := http.ListenAndServe(":" + port, nil)
     if err != nil {
         log.Fatal("Unable to listen on :7000: ", err)
     }
